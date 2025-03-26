@@ -39,3 +39,4 @@ Thumbs.db
 # Key Files - -not used but here anyway
 #######################################
 *.pem
+/build/
