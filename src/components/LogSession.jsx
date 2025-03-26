@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { getISOWeek } from 'date-fns'; // Import getISOWeek from date-fns
 
 const LogSession = ({ onAddEntry }) => {
   const [arrowsShot, setArrowsShot] = useState("");
@@ -11,7 +12,7 @@ const LogSession = ({ onAddEntry }) => {
 
     onAddEntry({
       shoot_date: new Date().toISOString().split("T")[0],
-      week_number: new Date().getWeekNumber(),
+      week_number: getISOWeek(new Date()), // Get the week number using date-fns
       arrows_shot: parseInt(arrowsShot, 10),
       perf_score: Math.min(10, parseInt(perfScore, 10)), // Max score 10
       notes,
